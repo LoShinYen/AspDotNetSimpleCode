@@ -1,50 +1,5 @@
-# Asp Dot Net Web API ±Ð¾Ç
+ï»¿# Asp Dot Net Web API æ•™å­¸
 
-## ²Ä¤@¨B
-«Ø¥ß¤@­Ó·sªº±M®×¡A¿ï¾Ü ASP.NET Web Application ½d¥»¡A¨Ã©R¦W¬° `WebAPISimpleCode`¡C
+1. [å‰µå»ºå°ˆæ¡ˆ](../Document/CreateProject.md)
 
-![Create Project Step 1](Document/create_project_001.png)
-
-## ²Ä¤G¨B
-¿ï¾Ü Web API ½d¥»¡A¨ÃÂIÀ»½T©w¡C
-
-![Create Project Step 2](Document/create_project_002.png)
-
-¥Ø«eAsp Dot Net ¥D¬y®Ø¬[
-- Asp .Net Core
-	- ¥i¸ó¥­¥x¶}µo(Windows,macOS,Linux)
-	- 
-- Asp .Net Framework(¤£¥i¸ó¥­¥x ,4.8.1¥H«á¤£¦b§ó·s) 
-	- ¤@¯ë¦Ó¨¥Net 5 ¥H«eªº¥»ª©¬O«üAsp .Net Framework , Net 5 ¥H«á¬O«üAsp .Net Core ,­Y5¥H«e·|¯S§O±j½Õ¨Ò¦p:Asp .Net Core 3.1
-	- 
-- Asp .Net Mvc
-	- ³q±`À³¥Î©ó¥þºÝ¶}µo¡A«e«áºÝ°ª«×½¢¦X
-	- ¥Ø«e¥D¬y¦³Razor ©M Blazor
-	- ¤]¦³Asp .Net Core ©M Asp .Net Framework
-	- 
--WPF
-	- ¥Ø«e³Ì·s¤§®à­±À³¥Î¶}µo®Ø¬[
-	
-- Winform(¦ÑÂÂ®Ø¬[)
-	- ¹q¸£®à­±À³¥Î¶}µo
-	
--webform(¦ÑÂÂ®Ø¬[)
-	- ºô­¶¶}µo
-
-## ²Ä¤T¨B
-±M®×«Ø¥ß«á¡A½T»{±M®×µ²ºc¦p¹Ï©Ò¥Ü¡C
-
-![Project Structure](Document/create_project_003.png)
-
-## ²Ä¥|¨B
-²K¥[¤@­Ó·sªº±±¨î¾¹¨Ó³B²z Web API ½Ð¨D¡C
-
-![Add Controller](Document/create_project_004.png)
-
-## ¤è®×»P±M®×¤§¶¡ªºÃö«Y
-¥H¤U¹Ï¤ù»¡©ú¤F¤è®×»P±M®×¤§¶¡ªºÃö«Y¡C
-
-![Relationship between Plans and Projects](Document/relationship_between_plans_and_projects.png)
-
-## µ²½×D
-¥»±Ð¾Ç®i¥Ü¤F¦p¦ó¦b ASP.NET ¤¤«Ø¥ß¤@­ÓÂ²³æªº Web API ±M®×¡A¨ÃÂ²­n¤¶²Ð¤F¬ÛÃöªº±M®×µ²ºc©M°t¸m¡C
+2. [æž¶æ§‹ä»‹ç´¹](./Document/CreateProject.md)
