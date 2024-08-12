@@ -2,4 +2,6 @@
 
 1. [創建專案](../Document/CreateProject.md)
 
-<!-- 2. [架構介紹](./Document/CreateProject.md) -->
+2. [架構介紹](./Document/CreateProject.md)
+
+3. [DBFirst](../Document/EfCore.md)
