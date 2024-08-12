@@ -1,4 +1,4 @@
-﻿namespace WebAPISimpleCode.Controllers
+﻿namespace WebAPISimpleCode.Models.RequestModels
 {
     public class LoginRequest
     {
