@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using WebAPISimpleCode.Models.Context;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +10,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region DB DI ª`¤J
 
 builder.Services.AddDbContext<TutorialDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+
+#endregion
 
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AuthRepository>();

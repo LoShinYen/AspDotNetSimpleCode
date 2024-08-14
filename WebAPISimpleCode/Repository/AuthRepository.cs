@@ -1,5 +1,4 @@
-﻿using WebAPISimpleCode.Models.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace WebAPISimpleCode.Repository
 {
