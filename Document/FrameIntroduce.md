@@ -1,4 +1,4 @@
-## 目前Asp Dot Net 主流框架
+## 目前Asp Dot Net概略介紹
 - Asp .Net Core
 	- 可跨平台開發(Windows,macOS,Linux)
 	
