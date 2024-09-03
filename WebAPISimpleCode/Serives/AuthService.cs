@@ -1,20 +1,13 @@
 ﻿namespace WebAPISimpleCode.Services
 {
-    public class AuthService
+    public class AuthService(AuthRepository authRepository)
     {
-        private readonly AuthRepository _authRepository;
-
-        public AuthService(AuthRepository authRepository)
-        {
-            _authRepository = authRepository;
-        }
-
         /// <summary>
         /// 創建帳號
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <param name="email"></param>
+        /// <param name="username">User名稱</param>
+        /// <param name="password">User密碼</param>
+        /// <param name="email">User Email</param>
         /// <returns></returns>
         public async Task<bool> CreateAccountAsync(string username, string password, string email)
         {
@@ -36,19 +29,19 @@
             };
 
             // 調用 AuthRepository 創建帳號
-            return await _authRepository.CreateAccountAsync(account);
+            return await authRepository.CreateAccountAsync(account);
         }
 
         /// <summary>
         /// 驗證帳號憑證
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
+        /// <param name="username">User 名稱</param>
+        /// <param name="password">User 密碼</param>
         /// <returns></returns>
         public async Task<bool> ValidateCredentialsAsync(string username, string password)
         {
             // 根據用戶名獲取帳號
-            var account = await _authRepository.GetAccountByUsernameAsync(username);
+            var account = await authRepository.GetAccountByUsernameAsync(username);
             if (account == null)
             {
                 return false; // 帳號不存在
@@ -61,18 +54,18 @@
         /// <summary>
         /// 啟用帳號
         /// </summary>
-        /// <param name="username"></param>
+        /// <param name="accountId"></param>
         /// <returns></returns>
-        public async Task<bool> ActivateAccountAsync(string username)
+        public async Task<bool> ActivateAccountAsync(int accountId)
         {
-            var account = await _authRepository.GetAccountByUsernameAsync(username);
+            var account = await authRepository.GetAccountByUsernameAsync(accountId);
             if (account == null)
             {
                 return false; // 帳號不存在
             }
 
             account.IsActive = true;
-            return await _authRepository.UpdateAccountAsync(account);
+            return await authRepository.UpdateAccountAsync(account);
         }
 
         /// <summary>
@@ -82,7 +75,7 @@
         /// <returns></returns>
         public async Task<bool> DeleteAccountAsync(int accountId)
         {
-            return await _authRepository.DeleteAccountAsync(accountId);
+            return await authRepository.DeleteAccountAsync(accountId);
         }
     }
 }

@@ -1,24 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-
 namespace WebAPISimpleCode.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController(AuthService authService) : ControllerBase
     {
-        private readonly AuthService _authService;
-
-        public AuthController(AuthService authService)
-        {
-            _authService = authService;
-        }
-
         // POST: api/Auth/Register
         [HttpPost(Name = "Register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
-            if (await _authService.CreateAccountAsync(request.Username, request.Password, request.Email))
+            if (await authService.CreateAccountAsync(request.Username, request.Password, request.Email))
             {
                 return Ok(new { Message = "Account created successfully" });
             }
@@ -30,7 +22,7 @@ namespace WebAPISimpleCode.Controllers
         [HttpPost(Name ="Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            if (await _authService.ValidateCredentialsAsync(request.Username, request.Password))
+            if (await authService.ValidateCredentialsAsync(request.Username, request.Password))
             {
                 return Ok(new { Message = "Login successful" });
             }
@@ -38,11 +30,11 @@ namespace WebAPISimpleCode.Controllers
             return Unauthorized(new { Message = "Invalid username or password" });
         }
 
-        // PUT: api/Auth/Activate/{username}
-        [HttpPut("activate/{username}")]
-        public async Task<IActionResult> Activate(string username)
+        // PUT: api/Auth/Activate/{accountId}
+        [HttpPut("activate/{accountId}")]
+        public async Task<IActionResult> Activate(int accountId)
         {
-            if (await _authService.ActivateAccountAsync(username))
+            if (await authService.ActivateAccountAsync(accountId))
             {
                 return Ok(new { Message = "Account activated successfully" });
             }
@@ -54,7 +46,7 @@ namespace WebAPISimpleCode.Controllers
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (await _authService.DeleteAccountAsync(id))
+            if (await authService.DeleteAccountAsync(id))
             {
                 return Ok(new { Message = "Account deleted successfully" });
             }

@@ -2,15 +2,8 @@
 
 namespace WebAPISimpleCode.Repository
 {
-    public class AuthRepository
+    public class AuthRepository(TutorialDbContext context)
     {
-        private readonly TutorialDbContext _context;
-
-        public AuthRepository(TutorialDbContext context)
-        {
-            _context = context;
-        }
-
         /// <summary>
         /// 創建帳號
         /// </summary>
@@ -19,13 +12,13 @@ namespace WebAPISimpleCode.Repository
         public async Task<bool> CreateAccountAsync(Account account)
         {
             // 檢查是否已存在相同的帳號
-            if (_context.Accounts.Any(a => a.Username == account.Username))
+            if (context.Accounts.Any(a => a.Username == account.Username))
             {
                 return false;
             }
 
-            _context.Accounts.Add(account);
-            await _context.SaveChangesAsync();
+            context.Accounts.Add(account);
+            await context.SaveChangesAsync();
             return true; // 帳號創建成功
         }
 
@@ -34,9 +27,9 @@ namespace WebAPISimpleCode.Repository
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public async Task<Account?> GetAccountByUsernameAsync(string username)
+        public async Task<Account?> GetAccountByUsernameAsync(int accountId)
         {
-            return await _context.Accounts.FirstOrDefaultAsync(a => a.Username == username);
+            return await context.Accounts.FirstOrDefaultAsync(a => a.AccountId == accountId);
         }
 
         /// <summary>
@@ -46,8 +39,8 @@ namespace WebAPISimpleCode.Repository
         /// <returns></returns>
         public async Task<bool> UpdateAccountAsync(Account account)
         {
-            _context.Accounts.Update(account);
-            await _context.SaveChangesAsync();
+            context.Accounts.Update(account);
+            await context.SaveChangesAsync();
             return true;
         }
 
@@ -58,14 +51,14 @@ namespace WebAPISimpleCode.Repository
         /// <returns></returns>
         public async Task<bool> DeleteAccountAsync(int accountId)
         {
-            var account = await _context.Accounts.FindAsync(accountId);
+            var account = await context.Accounts.FindAsync(accountId);
             if (account == null)
             {
                 return false;
             }
 
-            _context.Accounts.Remove(account);
-            await _context.SaveChangesAsync();
+            context.Accounts.Remove(account);
+            await context.SaveChangesAsync();
             return true;
         }
     }
